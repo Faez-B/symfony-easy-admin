@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Admin{% endblock %}
+
+{% block body %}
+<div>
+    <h1 class="text-center">Chart.js</h1>
+
+    {{ render_chart(chart, {'class': 'my-chart'}) }}
+</div>
+{% endblock %}
+
