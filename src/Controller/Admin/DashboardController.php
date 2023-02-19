@@ -13,13 +13,19 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 class DashboardController extends AbstractDashboardController
 {
     public function __construct(private ChartBuilderInterface $chartBuilder) 
-    {}
+    {
+    }
 
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
+        return parent::index();
+    }
+
+    #[Route('/admin/chart', name: 'admin_chart')]
+    public function chart() : Response
+    {
         $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
-        // ...set chart data and options somehow
 
         $chart->setData([
             'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
