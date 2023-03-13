@@ -7,6 +7,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 
 class ArticlesCrudController extends AbstractCrudController
 {
@@ -22,7 +23,8 @@ class ArticlesCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('title'),
             TextEditorField::new('content'),
+            DateTimeField::new('createdAt')->onlyOnIndex()->setFormat('dd/MM/yyyy'),
         ];
     }
-    
+
 }
