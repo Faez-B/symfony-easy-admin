@@ -23,13 +23,13 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('SymfonyApp');
+            ->setTitle('Mon Dashboard');
     }
 
     public function configureMenuItems(): iterable
     {
-        yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Articles', 'fas fa-list', Articles::class);
+        yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
+        yield MenuItem::linkToCrud('Articles', 'fa-regular fa-newspaper', Articles::class);
     }
 
     public function configureActions(): Actions
