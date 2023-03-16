@@ -8,14 +8,21 @@
     {% endif %}
 
     <form action="{{ path('login') }}" method="post">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="_username" value="{{ last_username }}">
+        <div class="mb-3">
+            <label for="username" class="form-label">Email:</label>
+            <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" aria-describedby="emailHelp">
+        </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="_password">
+        <div class="mb-3">
+            <label for="password" class="form-label">Password:</label>
+            <input type="password" id="password" name="_password" class="form-control">
+        </div>
 
         <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <button type="submit">login</button>
+        <button type="submit" class="btn btn-primary">login</button>
+    </form>
+
+    <form>
     </form>
 {% endblock %}
