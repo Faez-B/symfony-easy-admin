@@ -26,6 +26,9 @@ class Articles
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[ORM\Column]
+    private ?int $views = 0;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -63,6 +66,18 @@ class Articles
     public function setImage(?string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getViews(): ?int
+    {
+        return $this->views;
+    }
+
+    public function addView(): self
+    {
+        $this->views++;
 
         return $this;
     }
