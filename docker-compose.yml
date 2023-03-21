@@ -1,6 +1,10 @@
 version: '3'
 
 services:
+  app :
+    build: ./
+    ports:
+      - 8000:8000
   db:
     container_name: db
     image: mysql:latest
@@ -13,10 +17,10 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: symfony
-    volumes:
+    # volumes:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      - database_data:/var/lib/sql/data:rw
-      - ./docker/db/data:/var/lib/sql/data:rw
+      # - database_data:/var/lib/sql/data:rw
+      # - ./docker/db/data:/var/lib/sql/data:rw
 
   phpmyadmin:
     container_name: phpmyadmin
