@@ -1,25 +1,24 @@
 version: '3'
 
 services:
-  app :
+  symfony :
+    container_name: app
     build: ./
     ports:
-      - 8000:80
-  db:
+      - 80:80
+      
+  mysql:
     container_name: db
     image: mysql:latest
-    # NOTE: use of "mysql_native_password" is not recommended: https://dev.mysql.com/doc/refman/8.0/en/upgrading-from-previous-series.html#upgrade-caching-sha2-password
-    # (this is just an example, not intended to be a production configuration)
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
     ports:
-      - 9001:80
+      - '3306:3306'
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: symfony
-    # volumes:
+    volumes:
       # You may use a bind-mounted host directory instead, so that it is harder to accidentally remove the volume and lose all your data!
-      # - database_data:/var/lib/sql/data:rw
+      - database_data:/var/lib/mysql
       # - ./docker/db/data:/var/lib/sql/data:rw
 
   phpmyadmin:

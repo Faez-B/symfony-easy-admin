@@ -34,20 +34,21 @@ class DashboardController extends AbstractDashboardController
         ]);
     }
 
+    // private function createChart(array $labels) : Chart
     private function createChart() : Chart
     {
-        $chart = $this->chartBuilder->createChart(Chart::TYPE_LINE);
+        $chart = $this->chartBuilder->createChart(Chart::TYPE_BAR);
 
         $chart->setData([
-            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            'labels' => ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December', 'September', 'October', 'November', 'December'],
             'datasets' => [
                 [
-                    'label' => 'My First dataset',
+                    'label' => 'My Dataset',
                     'backgroundColor' => 'rgb(255, 99, 132)',
                     'borderColor' => 'rgb(255, 99, 132)',
                     'data' => [0, 10, 5, 2, 20, 30, 45],
-                ],
-            ],
+                ]
+            ]
         ]);
 
         $chart->setOptions([

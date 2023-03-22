@@ -1,9 +1,7 @@
 FROM php:8.2.4-apache
 
-WORKDIR /app
-
 # Modules
-RUN apt-get update \
+RUN apt-get update -y \
     &&  apt-get install -y --no-install-recommends \
         git unzip nodejs npm wget ca-certificates libzip-dev
         # zsh
@@ -22,12 +20,10 @@ RUN curl -sS https://getcomposer.org/installer | php -- \
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
     &&  mv /root/.symfony5/bin/symfony /usr/local/bin
 
-RUN a2enmod rewrite
-
 # RUN docker-php-ext-install pdo pdo_mysql zip calendar dom mbstring gd xsl;
 RUN docker-php-ext-install pdo pdo_mysql zip;
 
-COPY docker/apache.conf /etc/apache2/sites-enabled/000-default.conf
+COPY vhosts/vhosts.conf /etc/apache2/sites-enabled/000-default.conf
 
 # Oh My Zsh
 # Default powerline10k theme, no plugins installed
@@ -43,7 +39,11 @@ COPY docker/apache.conf /etc/apache2/sites-enabled/000-default.conf
 
 # SHELL ["/bin/zsh", "-c"]
 
-COPY . /app
+COPY ./app /var/www
+
+WORKDIR /var/www
 
 RUN composer install
 RUN npm install
+
+EXPOSE 8000
