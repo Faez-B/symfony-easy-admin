@@ -14,8 +14,6 @@ yarn-error.log
 /app/node_modules/
 /app/vendor/
 /app/var/
-/app/public/bundles
-/app/public/build
 
 node_modules
 vendor
