@@ -24,3 +24,4 @@ public/build
 public/bundles
 .DS_Store
 Dockerfile
+.env.local
