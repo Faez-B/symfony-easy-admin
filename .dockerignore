@@ -22,3 +22,5 @@ vendor
 var
 public/build
 public/bundles
+.DS_Store
+Dockerfile
