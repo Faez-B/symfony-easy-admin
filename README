@@ -1,0 +1,22 @@
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/Faez-B/symfony-easy-admin.git
+```
+
+Go to the project directory
+
+```bash
+  cd symfony-easy-admin
+```
+
+Up the containers
+
+```bash
+docker compose up --build -d
+```
+
+Go to 127.0.0.1
