@@ -1,5 +1,5 @@
 
-## Run Locally
+# Dockerized Symfony App
 
 Clone the project
 
@@ -12,11 +12,51 @@ Go to the project directory
 ```bash
   cd symfony-easy-admin
 ```
+## Run Locally
 
-Up the containers
+```bash
+  cd app
+```
+### Composer installation
+
+```bash
+  composer install
+```
+
+### NPM installation
+
+```bash
+  npm install
+```
+
+### Start the server
+
+```bash
+  symfony serve
+```
+
+### Run the NPM script
+  
+  ```bash
+    npm run watch
+  ```
+
+Go to ```127.0.0.1:8000```
+
+## Or you can run with Docker
+Launch the containers
 
 ```bash
 docker compose up --build -d
 ```
 
-Go to 127.0.0.1
+Go to ```127.0.0.1```
+
+### Available routes
+  
+  ```bash
+    /         : ROLE_USER
+    /admin    : ROLE_ADMIN
+    /login    : PUBLIC_ACCESS
+    /register : PUBLIC_ACCESS
+  ```
