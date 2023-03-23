@@ -17,25 +17,26 @@ Go to the project directory
 ```bash
   cd app
 ```
-### Composer installation
+### 1 - Composer installation
 
 ```bash
   composer install
 ```
 
-### NPM installation
+### 2 - NPM installation
 
 ```bash
   npm install
+  npm run build
 ```
 
-### Start the server
+### 3 - Start the server
 
 ```bash
   symfony serve
 ```
 
-### Run the NPM script
+### 4 - Run the NPM script
   
   ```bash
     npm run watch
@@ -51,6 +52,16 @@ docker compose up --build -d
 ```
 
 Go to ```127.0.0.1```
+
+### Either way
+You should have the following folders in your project directory
+
+```bash
+  /public/build/
+  /public/bundles/
+  /vendor/
+  /node_modules/
+```
 
 ### Available routes
   
