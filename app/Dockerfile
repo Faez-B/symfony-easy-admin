@@ -23,7 +23,7 @@ RUN curl -sS https://get.symfony.com/cli/installer | bash \
 # RUN docker-php-ext-install pdo pdo_mysql zip calendar dom mbstring gd xsl;
 RUN docker-php-ext-install pdo pdo_mysql zip;
 
-COPY vhosts/vhosts.conf /etc/apache2/sites-enabled/000-default.conf
+COPY public/.htaccess /etc/apache2/sites-enabled/000-default.conf
 
 # Oh My Zsh
 # Default powerline10k theme, no plugins installed
@@ -39,7 +39,7 @@ COPY vhosts/vhosts.conf /etc/apache2/sites-enabled/000-default.conf
 
 # SHELL ["/bin/zsh", "-c"]
 
-COPY ./app /var/www
+COPY ./ /var/www
 
 WORKDIR /var/www
 
