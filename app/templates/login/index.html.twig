@@ -3,11 +3,15 @@
 {% block title %}Login form{% endblock %}
 
 {% block body %}
-    {% if error %}
-        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
-
     <div class="container py-4">
+        <h1>
+            Connexion
+        </h1>
+
+        {% if error %}
+            <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+        {% endif %}
+
         <form action="{{ path('login') }}" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Email:</label>
@@ -22,7 +26,7 @@
             <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
             <div class="text-end">
-                <button type="submit" class="btn btn-primary">login</button>
+                <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </form>
     </div>
