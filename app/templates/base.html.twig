@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{% block title %}Welcome!{% endblock %}</title>
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
 
@@ -13,7 +14,40 @@
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </head>
+
     <body>
+        <header class="p-3 text-bg-dark">
+            <div class="container">
+                <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                    <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a href="{{ path('admin') }}" class="nav-link px-2 text-white">Dashboard</a></li>
+                        {% endif %}
+                    </ul>
+
+                    {% if app.user %}
+                        <form class="col-12 col-lg-auto my-2 my-sm-0 me-3" role="search">
+                            <input type="search" class="form-control form-control-dark text-bg-dark" placeholder="Search..." aria-label="Search">
+                        </form>
+                    {% endif %}
+
+                    <div class="text-end my-2 my-lg-0">
+                        {% if not app.user %}
+                            <a href="{{ path('login') }}" type="button" class="btn btn-outline-success me-2">
+                                Login
+                            </a>
+
+                            <a href="{{ path('register') }}" type="button" class="btn btn-outline-warning">
+                                Sign-up
+                            </a>
+                        {% else %}
+                            <a href="{{ path('logout') }}" class="btn btn-outline-danger me-2">Logout</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </header>
+        
         {% block body %}{% endblock %}
     </body>
 </html>
