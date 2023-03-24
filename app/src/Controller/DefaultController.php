@@ -11,10 +11,6 @@ class DefaultController extends AbstractController
     #[Route('/', name: 'app_default')]
     public function index(): Response
     {
-        if ($this->isGranted('ROLE_ADMIN')) {
-            return $this->redirectToRoute('admin');
-        }
-        
         return $this->render('default/index.html.twig', [
             'controller_name' => 'DefaultController',
         ]);
