@@ -8,6 +8,8 @@
         {% for article in articles %}
             <div class="col">
                 <div class="card h-100">
+                    <img src="{{ article.imageLink }}" class="text-center card-img-top" alt="Image indisponible">
+
                     <div class="card-body">
                         <h5 class="card-title">{{ article.title }}</h5>
                         <p class="card-text">

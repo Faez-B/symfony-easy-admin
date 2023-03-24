@@ -70,6 +70,11 @@ class Articles
         return $this;
     }
 
+    public function getImageLink(): ?string
+    {
+        return "/uploads/" . $this->image;
+    }
+
     public function getViews(): ?int
     {
         return $this->views;
