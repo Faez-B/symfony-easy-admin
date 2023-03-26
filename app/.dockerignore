@@ -9,6 +9,8 @@ vendor/
 var/
 public/build/
 public/bundles/
+public/.DS_Store
+public/uploads/*
 
 .DS_Store
 Dockerfile
