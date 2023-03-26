@@ -1,14 +1,15 @@
 version: '3'
 
 services:
-  mysql:
-    container_name: db
+  database:
+    container_name: database
     image: mysql:latest
     restart: always
-    ports:
-      - '3306'
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: motdepasse
+      MYSQL_ALLOW_EMPTY_PASSWORD: no
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
       MYSQL_DATABASE: symfony
     volumes:
       - database_data:/var/lib/mysql
@@ -21,8 +22,12 @@ services:
     restart: always
     ports:
       - '8080:80'
+    depends_on:
+      - database
     networks:
       - mynetwork
+    environment:
+      PMA_HOST: database
   
   mailer:
     container_name: mailer
@@ -35,7 +40,7 @@ services:
     ports:
       - 80:80
     depends_on:
-      - mysql
+      - database
     networks:
       - mynetwork
 
