@@ -1,0 +1,15 @@
+phpunit.xml
+.phpunit.result.cache
+
+npm-debug.log
+yarn-error.log
+
+node_modules/
+vendor/
+var/
+public/build/
+public/bundles/
+
+.DS_Store
+Dockerfile
+.env.local
