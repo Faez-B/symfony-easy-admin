@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Articles;
+use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
@@ -76,6 +77,8 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToDashboard('Accueil', 'fa fa-home');
         yield MenuItem::linkToRoute('Visuel utilisateur', 'fa fa-eye', "app_articles");
         yield MenuItem::linkToCrud('Articles', 'fa-regular fa-newspaper', Articles::class);
+        yield MenuItem::linkToCrud('Users', 'fa-solid fa-user', User::class)
+        ->setPermission('ROLE_SUPER_ADMIN');
     }
 
     public function configureActions(): Actions
