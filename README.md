@@ -12,7 +12,7 @@ Go to the project directory
 ```bash
   cd symfony-easy-admin
 ```
-## Run Locally
+## Run Locally...
 
 ```bash
   cd app
@@ -44,11 +44,23 @@ Go to the project directory
 
 Go to ```127.0.0.1:8000```
 
-## Or you can run with Docker
-Launch the containers
+## ...or Run with Docker
+### 1 - Launch the containers
 
 ```bash
 docker compose up --build -d
+```
+
+### 2 - Host Command line
+```bash
+# Go into the container
+docker exec -it symfony bash
+```
+
+### 3 - Container Command line
+```bash
+# Create the tables
+symfony console doctrine:schema:update --force --complete
 ```
 
 Go to ```127.0.0.1```
