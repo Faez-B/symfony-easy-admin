@@ -1,5 +1,5 @@
 up:
-	docker compose up --build
+	docker compose up --build -d
 #   docker exec -it symfony symfony console doctrine:schema:update --force --complete
 #	docker exec symfony bash -c "symfony console doctrine:schema:update --force --complete"
 

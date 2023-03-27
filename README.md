@@ -51,18 +51,11 @@ Go to ```127.0.0.1:8000```
 docker compose up --build -d
 ```
 
-### 2 - Host Command line
+### 2 - Command line
 ```bash
-# Go into the container
-docker exec -it symfony bash
+# Makefile
+make inside
 ```
-
-### 3 - Container Command line
-```bash
-# Create the tables
-symfony console doctrine:schema:update --force --complete
-```
-
 Go to ```127.0.0.1```
 
 ### Either way
