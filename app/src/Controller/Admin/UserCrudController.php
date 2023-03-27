@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
 class UserCrudController extends AbstractCrudController
@@ -25,11 +26,19 @@ class UserCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        return [
-            IdField::new('id')->onlyOnIndex(),
-            EmailField::new('email'),
-            TextField::new('password')->onlyWhenCreating()
-        ];
+        
+        yield IdField::new('id')->onlyOnIndex();
+        yield EmailField::new('email');
+        yield TextField::new('password')->onlyWhenCreating();
+        yield ChoiceField::new('roles')->setChoices([
+            'User' => 'ROLE_USER',
+            'Admin' => 'ROLE_ADMIN',
+            'Super Admin' => 'ROLE_SUPER_ADMIN',
+        ])
+        ->allowMultipleChoices()
+        ->renderAsBadges()
+        ->renderExpanded()
+        ;
     }
 
     public function configureCrud(Crud $crud): Crud
