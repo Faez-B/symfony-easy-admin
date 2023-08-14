@@ -25,7 +25,7 @@ class ArticlesCrudController extends AbstractCrudController
             IdField::new('id')->onlyOnIndex(),
             TextField::new('title')->setLabel('Titre'),
             // TextEditorField::new('content'),
-            TextareaField::new('content')->setLabel('Contenu'),
+            TextEditorField::new('content')->setLabel('Contenu'),
             DateTimeField::new('createdAt')->onlyOnIndex()->setFormat('dd/MM/yyyy')->setLabel('Date de création'),
             ImageField::new('image')->setBasePath('/uploads/')->setUploadDir('/public/uploads/')->setLabel('Image'),
         ];

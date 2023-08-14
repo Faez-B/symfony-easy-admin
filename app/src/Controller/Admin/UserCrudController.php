@@ -32,6 +32,7 @@ class UserCrudController extends AbstractCrudController
         yield TextField::new('password')->onlyWhenCreating();
         yield ChoiceField::new('roles')->setChoices([
             'User' => 'ROLE_USER',
+            'Guest' => 'ROLE_GUEST',
             'Admin' => 'ROLE_ADMIN',
             'Super Admin' => 'ROLE_SUPER_ADMIN',
         ])

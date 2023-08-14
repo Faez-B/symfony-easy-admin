@@ -26,7 +26,7 @@ class DashboardController extends AbstractDashboardController
         $this->chartBuilder = $chartBuilder;
     }
 
-    #[IsGranted('ROLE_ADMIN')]
+    #[IsGranted('ROLE_GUEST')]
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
@@ -101,6 +101,11 @@ class DashboardController extends AbstractDashboardController
             ->add(Crud::PAGE_NEW, Action::INDEX)
             ->add(Crud::PAGE_NEW, Action::SAVE_AND_RETURN)
             ->add(Crud::PAGE_NEW, Action::SAVE_AND_ADD_ANOTHER)
+
+            ->setPermission(Action::DELETE, 'ROLE_SUPER_ADMIN')
+            ->setPermission(Action::EDIT, 'ROLE_SUPER_ADMIN')
+            ->setPermission(Action::NEW, 'ROLE_SUPER_ADMIN')
+            ->setPermission(Action::BATCH_DELETE, 'ROLE_SUPER_ADMIN')
         ;
     }
 

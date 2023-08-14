@@ -12,6 +12,21 @@
             <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
         {% endif %}
 
+        <div class="my-3">
+            <div>
+                <strong>Guest account :</strong>
+            </div>
+
+            <div>
+                <strong>Email :</strong> guest@guest.com
+            </div>
+
+
+            <div>
+                <strong>Password :</strong> guest
+            </div>
+        </div>
+
         <form action="{{ path('login') }}" method="post">
             <div class="mb-3">
                 <label for="username" class="form-label">Email:</label>
