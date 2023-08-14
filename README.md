@@ -1,6 +1,9 @@
 
 # Dockerized Symfony App
 
+This app has an admin dashboard made by EasyAdmin bundle and it uses Symfony UX (Chart.js).
+The whole Symfony app (including Symfony UX) has been dockerised.
+
 Clone the project
 
 ```bash
