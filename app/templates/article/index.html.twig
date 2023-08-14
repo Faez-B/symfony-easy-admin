@@ -3,7 +3,7 @@
 {% block title %}Liste des articles{% endblock %}
 
 {% block body %}
-<div class="container py-4">
+<div class="">
     <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for article in articles %}
             <div class="col">
@@ -19,7 +19,9 @@
 
                     <div class="card-footer text-end">
                         <small class="text-muted">
-                            <button class="btn btn-primary">Lire la suite</button>
+                            <a href="{{ path('app_article_show', { 'id' : article.id }) }}">
+                                <button class="btn btn-primary">Lire la suite</button>
+                            </a>
                         </small>
                     </div>
                 </div>

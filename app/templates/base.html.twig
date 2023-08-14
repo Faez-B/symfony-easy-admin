@@ -33,7 +33,7 @@
 
                     <div class="text-end my-2 my-lg-0">
                         {% if not app.user %}
-                            <a href="{{ path('login') }}" type="button" class="btn btn-outline-success me-2">
+                            <a href="{{ path('login') }}" type="button" class="btn btn-outline-success">
                                 Login
                             </a>
 
@@ -41,13 +41,19 @@
                                 Sign-up
                             </a> #}
                         {% else %}
-                            <a href="{{ path('logout') }}" class="btn btn-outline-danger me-2">Logout</a>
+                            <a href="{{ path('logout') }}" class="btn btn-outline-danger">Logout</a>
                         {% endif %}
                     </div>
                 </div>
             </div>
         </header>
         
-        {% block body %}{% endblock %}
+        <main class="container py-4">
+            {% block body %}{% endblock %}
+        </main>
+
+        <footer>
+            
+        </footer>
     </body>
 </html>

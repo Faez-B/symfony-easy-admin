@@ -1,1 +1,31 @@
 {% extends "base.html.twig" %}
+
+{% block body %}
+    <div class="article">
+        <div>
+            <a href="{{ path('app_articles') }}" class="btn btn-outline-warning">Retour à la liste</a>
+        </div>
+
+        <div class="text-center">
+            <h1>
+                {{ article.title }}            
+            </h1>
+
+            <img src="{{ article.imageLink }}" alt="Image indisponible">
+        </div>
+
+        <div>
+            <div>
+                Créé le {{ article.createdAt|date('d/m/Y') }}
+            </div>
+
+            <div>
+                Dernière modification : {{ article.updatedAt|date('d/m/Y') }}
+            </div>
+        </div>
+
+        <div>
+            {{ article.content|raw }}
+        </div>
+    </div>
+{% endblock %}
