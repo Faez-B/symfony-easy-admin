@@ -29,10 +29,6 @@ RUN apt-get update -y \
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 RUN chmod +x /usr/local/bin/install-php-extensions && \
     install-php-extensions gd xdebug apcu opcache intl zip pdo pdo_mysql
-# RUN docker-php-ext-install pdo pdo_mysql zip gd intl;
-# # RUN docker-php-ext-enable xdebug;
-# RUN pecl install xdebug apcu opcache \
-#     && docker-php-ext-enable xdebug apcu opcache
 
 # Symfony CLI
 RUN curl -sS https://get.symfony.com/cli/installer | bash \
