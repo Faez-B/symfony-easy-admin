@@ -81,6 +81,16 @@ class DashboardController extends AbstractDashboardController
         ->setPermission('ROLE_SUPER_ADMIN');
     }
 
+    public function configureCrud(): Crud
+    {
+        return Crud::new()
+            ->setPageTitle(Crud::PAGE_INDEX, 'Liste des %entity_label_plural%')
+            ->setPageTitle(Crud::PAGE_NEW, 'Ajouter un %entity_label_singular%')
+            ->setPageTitle(Crud::PAGE_EDIT, 'Modifier un %entity_label_singular%')
+            ->setPageTitle(Crud::PAGE_DETAIL, 'Détail de l\'%entity_label_singular%')
+        ;
+    }
+
     public function configureActions(): Actions
     {
         return Actions::new()
